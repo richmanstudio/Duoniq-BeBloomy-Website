@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" fill="none">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#2A2A28" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="1180" y1="40" x2="730" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B6FF00" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#B6FF00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="640" rx="28" fill="#111111"/>
+  <rect width="1440" height="640" rx="28" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1438" height="638" rx="27" stroke="#343432" stroke-width="2"/>
+
+  <circle cx="1210" cy="110" r="330" fill="url(#fade)"/>
+  <path d="M1116 64H1376V324" stroke="#B6FF00" stroke-width="3"/>
+  <path d="M1266 574H1006V314" stroke="#B6FF00" stroke-width="3"/>
+
+  <rect x="72" y="64" width="168" height="40" rx="20" fill="#B6FF00"/>
+  <text x="156" y="90" text-anchor="middle" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="2">DUONIQ CASE</text>
+
+  <text x="72" y="184" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" letter-spacing="-3">BeBloomy</text>
+  <text x="72" y="254" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" letter-spacing="-3">Flowers &amp; Decor</text>
+
+  <text x="72" y="326" fill="#B6FF00" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1">DIGITAL CONCEPT · LIMASSOL, CYPRUS</text>
+
+  <text x="72" y="390" fill="#D9D9D4" font-family="Arial, Helvetica, sans-serif" font-size="22">A premium commerce and brand experience built with</text>
+  <text x="72" y="424" fill="#D9D9D4" font-family="Arial, Helvetica, sans-serif" font-size="22">Next.js, React and a Telegram-first order flow.</text>
+
+  <g transform="translate(72 500)">
+    <rect width="156" height="44" rx="6" fill="#1A1A19" stroke="#3B3B38"/>
+    <text x="78" y="28" text-anchor="middle" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600">NEXT.JS 16</text>
+  </g>
+  <g transform="translate(240 500)">
+    <rect width="128" height="44" rx="6" fill="#1A1A19" stroke="#3B3B38"/>
+    <text x="64" y="28" text-anchor="middle" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600">REACT 19</text>
+  </g>
+  <g transform="translate(380 500)">
+    <rect width="156" height="44" rx="6" fill="#1A1A19" stroke="#3B3B38"/>
+    <text x="78" y="28" text-anchor="middle" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600">TYPESCRIPT</text>
+  </g>
+  <g transform="translate(548 500)">
+    <rect width="176" height="44" rx="6" fill="#1A1A19" stroke="#3B3B38"/>
+    <text x="88" y="28" text-anchor="middle" fill="#F4F3EE" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600">GITHUB PAGES</text>
+  </g>
+
+  <text x="1368" y="594" text-anchor="end" fill="#696965" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="1.5">TECHNOLOGY THAT WORKS FOR BUSINESS.</text>
+</svg>
