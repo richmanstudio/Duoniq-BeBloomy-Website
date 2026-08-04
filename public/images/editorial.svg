@@ -1,13 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
-  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4c9bb"/><stop offset="1" stop-color="#8e8b83"/></linearGradient><filter id="grain"><feTurbulence baseFrequency=".75" numOctaves="4" seed="6"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/></filter></defs>
-  <rect width="900" height="1200" fill="url(#bg)"/>
-  <circle cx="680" cy="300" r="260" fill="#eee9df" opacity=".8"/>
-  <path d="M265 1230C310 860 400 540 640 160" stroke="#262b27" stroke-width="13" fill="none"/>
-  <g fill="#ece7dd" stroke="#383c38" stroke-width="2">
-    <ellipse cx="630" cy="220" rx="150" ry="82" transform="rotate(-26 630 220)"/><ellipse cx="540" cy="390" rx="140" ry="75" transform="rotate(20 540 390)"/><ellipse cx="425" cy="570" rx="125" ry="68" transform="rotate(-35 425 570)"/>
-  </g>
-  <g fill="#222824"><circle cx="630" cy="220" r="28"/><circle cx="540" cy="390" r="26"/><circle cx="425" cy="570" r="23"/></g>
-  <path d="M285 880C150 765 65 790 5 900C135 980 245 960 285 880Z" fill="#555e56"/>
-  <text x="70" y="1100" font-family="Georgia,serif" font-size="72" font-style="italic" fill="#f4efe7">Be in bloom.</text>
-  <rect width="900" height="1200" filter="url(#grain)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9d0c4"/><stop offset=".55" stop-color="#aaa79f"/><stop offset="1" stop-color="#6d756f"/></linearGradient>
+    <radialGradient id="petal" cx="40%" cy="30%" r="75%"><stop stop-color="#fffdf7"/><stop offset=".65" stop-color="#ded8ce"/><stop offset="1" stop-color="#8f938e"/></radialGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".78" numOctaves="4" seed="4"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .055 0"/></filter>
+    <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+  </defs>
+  <rect width="900" height="1125" fill="url(#bg)"/>
+  <circle cx="702" cy="238" r="280" fill="#f1ece4" opacity=".44" filter="url(#blur)"/>
+  <path d="M266 1180C308 850 414 520 666 120" fill="none" stroke="#242d28" stroke-width="13" stroke-linecap="round"/>
+  <g fill="url(#petal)" stroke="#515a54" stroke-width="2"><ellipse cx="650" cy="205" rx="165" ry="88" transform="rotate(-24 650 205)"/><ellipse cx="554" cy="388" rx="154" ry="82" transform="rotate(18 554 388)"/><ellipse cx="432" cy="582" rx="138" ry="74" transform="rotate(-31 432 582)"/></g>
+  <g fill="#252e29"><circle cx="650" cy="205" r="30"/><circle cx="554" cy="388" r="27"/><circle cx="432" cy="582" r="24"/></g>
+  <path d="M285 870C148 752 58 780 0 900C140 982 250 956 285 870Z" fill="#525f57"/>
+  <path d="M470 966C615 850 748 858 880 970C730 1050 594 1047 470 966Z" fill="#77847a" opacity=".82"/>
+  <rect width="900" height="1125" filter="url(#grain)" opacity=".9"/>
 </svg>
