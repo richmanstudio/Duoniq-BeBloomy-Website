@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eaded7"/><stop offset="1" stop-color="#c89f9b"/></linearGradient>
+    <radialGradient id="petal"><stop stop-color="#fff7f0"/><stop offset="1" stop-color="#cf9b98"/></radialGradient>
+    <filter id="grain"><feTurbulence baseFrequency=".8" numOctaves="3" seed="8"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .055 0"/></filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <g opacity=".95">
+    <path d="M450 1120C430 850 480 560 650 270" stroke="#405a49" stroke-width="12" fill="none"/>
+    <path d="M432 880C340 720 235 645 130 620" stroke="#405a49" stroke-width="8" fill="none"/>
+    <g transform="translate(610 280)">
+      <ellipse rx="185" ry="115" fill="url(#petal)" transform="rotate(-18)"/><ellipse rx="175" ry="105" fill="url(#petal)" transform="rotate(52)"/><ellipse rx="165" ry="100" fill="url(#petal)" transform="rotate(118)"/><ellipse rx="155" ry="92" fill="url(#petal)" transform="rotate(188)"/><circle r="58" fill="#7f4750"/><circle r="25" fill="#efc7b8"/>
+    </g>
+    <g transform="translate(238 615) scale(.72)">
+      <ellipse rx="185" ry="115" fill="url(#petal)" transform="rotate(-18)"/><ellipse rx="175" ry="105" fill="url(#petal)" transform="rotate(52)"/><ellipse rx="165" ry="100" fill="url(#petal)" transform="rotate(118)"/><ellipse rx="155" ry="92" fill="url(#petal)" transform="rotate(188)"/><circle r="58" fill="#7f4750"/><circle r="25" fill="#efc7b8"/>
+    </g>
+    <path d="M460 770C570 660 710 665 810 745C675 820 555 825 460 770Z" fill="#657d6a"/>
+  </g>
+  <rect width="900" height="1200" filter="url(#grain)" opacity=".5"/>
+</svg>

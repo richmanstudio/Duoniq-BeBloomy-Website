@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4c9bb"/><stop offset="1" stop-color="#8e8b83"/></linearGradient><filter id="grain"><feTurbulence baseFrequency=".75" numOctaves="4" seed="6"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/></filter></defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="680" cy="300" r="260" fill="#eee9df" opacity=".8"/>
+  <path d="M265 1230C310 860 400 540 640 160" stroke="#262b27" stroke-width="13" fill="none"/>
+  <g fill="#ece7dd" stroke="#383c38" stroke-width="2">
+    <ellipse cx="630" cy="220" rx="150" ry="82" transform="rotate(-26 630 220)"/><ellipse cx="540" cy="390" rx="140" ry="75" transform="rotate(20 540 390)"/><ellipse cx="425" cy="570" rx="125" ry="68" transform="rotate(-35 425 570)"/>
+  </g>
+  <g fill="#222824"><circle cx="630" cy="220" r="28"/><circle cx="540" cy="390" r="26"/><circle cx="425" cy="570" r="23"/></g>
+  <path d="M285 880C150 765 65 790 5 900C135 980 245 960 285 880Z" fill="#555e56"/>
+  <text x="70" y="1100" font-family="Georgia,serif" font-size="72" font-style="italic" fill="#f4efe7">Be in bloom.</text>
+  <rect width="900" height="1200" filter="url(#grain)"/>
+</svg>

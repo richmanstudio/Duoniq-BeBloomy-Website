@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs><linearGradient id="bg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#243c2f"/><stop offset="1" stop-color="#78917a"/></linearGradient><filter id="grain"><feTurbulence baseFrequency=".9" numOctaves="3" seed="12"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/></filter></defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <g fill="none" stroke="#e9e5d4" stroke-width="4" opacity=".86">
+    <path d="M410 1220C410 910 345 615 200 220"/>
+    <path d="M430 970C550 810 690 650 825 550"/>
+    <path d="M365 770C255 675 150 620 45 615"/>
+  </g>
+  <g fill="#c5d0b2" opacity=".92">
+    <ellipse cx="215" cy="285" rx="140" ry="55" transform="rotate(58 215 285)"/><ellipse cx="290" cy="485" rx="130" ry="50" transform="rotate(42 290 485)"/><ellipse cx="205" cy="650" rx="120" ry="46" transform="rotate(18 205 650)"/><ellipse cx="610" cy="775" rx="145" ry="54" transform="rotate(-34 610 775)"/><ellipse cx="720" cy="630" rx="120" ry="46" transform="rotate(-28 720 630)"/>
+  </g>
+  <g fill="#eee6c7"><circle cx="190" cy="190" r="70"/><circle cx="690" cy="450" r="58"/><circle cx="520" cy="875" r="45"/></g>
+  <g fill="#b87c70"><circle cx="190" cy="190" r="24"/><circle cx="690" cy="450" r="20"/><circle cx="520" cy="875" r="16"/></g>
+  <rect width="900" height="1200" filter="url(#grain)"/>
+</svg>
