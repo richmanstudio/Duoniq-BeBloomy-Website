@@ -1,40 +1,69 @@
 import Image from "next/image";
 import { Concierge } from "@/components/Concierge";
 import { Header } from "@/components/Header";
-import { LeafMark } from "@/components/LeafMark";
 import { Reveal } from "@/components/Reveal";
 
-const officialImage = "https://www.limassoldelmar.com/wp-content/uploads/2025/06/be-bloomy-2.jpg";
+const images = {
+  boutique: "https://www.limassoldelmar.com/wp-content/uploads/2025/06/be-bloomy-2.jpg",
+  bouquet: "https://images.unsplash.com/photo-1704177094380-ab854ad5a93b?auto=format&fit=crop&fm=jpg&q=88&w=1800",
+  eventWarm: "https://images.unsplash.com/photo-1751257567128-a90534b263e6?auto=format&fit=crop&fm=jpg&q=88&w=2200",
+  eventWhite: "https://images.unsplash.com/photo-1769812343531-cfe6bc93905e?auto=format&fit=crop&fm=jpg&q=88&w=2200",
+  eventTable: "https://images.unsplash.com/photo-1769812343775-85a27e6a076c?auto=format&fit=crop&fm=jpg&q=88&w=1800",
+  dried: "https://images.unsplash.com/photo-1533802228923-3e6de1b76779?auto=format&fit=crop&fm=jpg&q=88&w=1800",
+};
 
-const collections = [
+const services = [
   {
     number: "01",
-    title: "Soft gestures",
-    copy: "Airy, tonal arrangements for the moments that do not need a reason.",
-    image: "/images/soft-pink.svg",
-    alt: "Editorial blush floral composition",
+    title: "A bouquet for today",
+    copy: "Tell us the occasion, colour direction and budget. A florist will confirm what is freshest and available.",
+    action: "Start a bouquet brief",
   },
   {
     number: "02",
-    title: "Modern romance",
-    copy: "Sculptural flowers with expressive colour, texture and movement.",
-    image: "/images/orchids.svg",
-    alt: "Ivory orchid-inspired editorial composition",
+    title: "A composition made around someone",
+    copy: "Personal arrangements for birthdays, romance, gratitude and moments that do not fit a standard catalogue.",
+    action: "Describe the person",
   },
   {
     number: "03",
-    title: "Botanical objects",
-    copy: "Living compositions designed for interiors, gifting and arrival moments.",
-    image: "/images/green-detail.svg",
-    alt: "Dark botanical floral detail",
+    title: "Flowers for a room or event",
+    copy: "Table flowers, welcome arrangements and floral styling that work with the space rather than compete with it.",
+    action: "Discuss the setting",
+  },
+  {
+    number: "04",
+    title: "A thoughtful gift, completed",
+    copy: "Flowers can be paired with selected decor and gifting details from the boutique, subject to current availability.",
+    action: "Build a gift",
   },
 ];
 
-const services = [
-  ["01", "Signature bouquets", "Seasonal flowers composed in the distinctive BeBloomy language."],
-  ["02", "Celebrations & events", "Floral styling for intimate dinners, launches, weddings and private occasions."],
-  ["03", "Home & hospitality", "Thoughtful floral accents for residences, restaurants, hotels and client spaces."],
-  ["04", "Personal gifting", "A concierge approach to meaningful gifts, delivered with care across Limassol."],
+const directions = [
+  {
+    label: "Soft / tonal",
+    title: "Quiet colour, generous texture",
+    image: images.bouquet,
+    alt: "Soft cream, blush and violet bouquet used as visual direction",
+  },
+  {
+    label: "Clean / architectural",
+    title: "White flowers with a strong silhouette",
+    image: images.eventWhite,
+    alt: "White floral table arrangement used as visual direction",
+  },
+  {
+    label: "Warm / expressive",
+    title: "Colour that changes the atmosphere",
+    image: images.eventWarm,
+    alt: "Warm floral event installation used as visual direction",
+  },
+];
+
+const steps = [
+  ["01", "Send the brief", "Occasion, mood, budget, timing and delivery area."],
+  ["02", "Florist confirms", "Seasonal availability, composition and final details."],
+  ["03", "We prepare and deliver", "The order is assembled personally and handed over at the agreed time."],
 ];
 
 export default function Home() {
@@ -42,213 +71,229 @@ export default function Home() {
     <main id="top">
       <Header />
 
-      <section className="hero section-pad">
+      <section className="hero shell">
         <div className="hero-copy">
-          <p className="hero-kicker">Flowers & decor · Limassol, Cyprus</p>
+          <p className="section-label">Maison of flowers · Limassol</p>
           <h1>
-            Beauty,
-            <span>arranged.</span>
+            Flowers for the moment
+            <span>you actually mean.</span>
           </h1>
-          <p className="hero-intro">
-            An exquisite flower boutique where natural form, colour and emotion come together in every arrangement.
+          <p className="hero-lead">
+            Fresh and unusual flowers, personal guidance and a clear way to order — from a single bouquet to complete floral styling.
           </p>
           <div className="hero-actions">
-            <a className="primary-link" href="#collections">
-              Explore the edit <span>↓</span>
+            <a className="button button-dark" href="#concierge">
+              Start an order <span aria-hidden="true">↗</span>
             </a>
-            <a className="text-link" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
-              Speak with a florist ↗
+            <a className="inline-link" href="#directions">
+              Explore floral directions <span aria-hidden="true">↓</span>
             </a>
+          </div>
+          <div className="hero-proof" aria-label="Service highlights">
+            <span>Open daily 10:00–20:00</span>
+            <span>Personal florist guidance</span>
+            <span>Limassol delivery</span>
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="hero-image-wrap">
-            <Image
-              src={officialImage}
-              alt="Fresh flowers displayed inside the BeBloomy flower boutique"
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 52vw"
-            />
-          </div>
-          <div className="hero-caption">
+        <div className="hero-media">
+          <Image
+            src={images.boutique}
+            alt="Fresh flowers inside the BeBloomy boutique at Limassol Del Mar"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 58vw"
+          />
+          <div className="hero-media-shade" />
+          <div className="hero-media-top">
             <span>BeBloomy / Del Mar</span>
-            <span>Open daily 10:00—20:00</span>
+            <span>117–123 Georgiou A Street</span>
           </div>
-          <div className="hero-seal" aria-hidden="true">
-            <LeafMark />
-            <span>Made beautifully · Delivered thoughtfully ·</span>
+          <div className="hero-media-bottom">
+            <p>Walk in for flowers.<br />Message ahead for something personal.</p>
+            <a href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
+              Telegram concierge ↗
+            </a>
           </div>
         </div>
       </section>
 
-      <div className="ticker" aria-label="BeBloomy services">
-        <div>
-          <span>Signature bouquets</span><i>✦</i><span>Event florals</span><i>✦</i><span>Limassol delivery</span><i>✦</i>
-          <span>Personal concierge</span><i>✦</i><span>Signature bouquets</span><i>✦</i><span>Event florals</span><i>✦</i>
+      <section className="brand-note shell" aria-label="BeBloomy service statement">
+        <p>Not a catalogue of identical bouquets.</p>
+        <p>One conversation, one clear direction, one arrangement made for the moment.</p>
+      </section>
+
+      <section id="services" className="services shell section-space">
+        <div className="section-intro">
+          <p className="section-label">What can we arrange?</p>
+          <h2>Start with the need, not a product code.</h2>
+          <p>
+            BeBloomy is positioned as a personal flower service. The website makes the first step simple without replacing the florist’s judgement.
+          </p>
         </div>
-      </div>
 
-      <section id="collections" className="collections section-pad">
-        <Reveal className="section-heading">
-          <p className="eyebrow">The seasonal edit</p>
-          <h2>Flowers with a point of view.</h2>
-          <p>Designed around what is freshest, most expressive and right for the moment.</p>
-        </Reveal>
-
-        <div className="collection-grid">
-          {collections.map((item, index) => (
-            <Reveal key={item.title} className={`collection-card collection-${index + 1}`} delay={index * 90}>
-              <div className="collection-image">
-                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 800px) 100vw, 33vw" />
+        <div className="service-list">
+          {services.map((service, index) => (
+            <Reveal key={service.number} className="service-item" delay={index * 45}>
+              <span className="service-number">{service.number}</span>
+              <div>
+                <h3>{service.title}</h3>
+                <p>{service.copy}</p>
               </div>
-              <div className="collection-meta">
-                <span>{item.number}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
-                </div>
-                <span className="round-arrow" aria-hidden="true">↗</span>
-              </div>
+              <a href="#concierge">{service.action} ↗</a>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="statement section-pad">
-        <Reveal>
-          <p className="eyebrow">Our philosophy</p>
-          <p className="statement-text">
-            We do not simply wrap flowers. We compose <em>atmosphere, feeling and memory</em> — one stem at a time.
-          </p>
-        </Reveal>
-        <div className="statement-aside">
-          <span>Natural</span>
-          <span>Expressive</span>
-          <span>Personal</span>
+      <section id="directions" className="directions section-space">
+        <div className="shell">
+          <div className="directions-head">
+            <div>
+              <p className="section-label">Floral directions</p>
+              <h2>A visual starting point, never a rigid template.</h2>
+            </div>
+            <p>
+              Final flowers depend on season and availability. These references help a customer communicate the mood before the florist proposes a composition.
+            </p>
+          </div>
+
+          <div className="direction-grid">
+            {directions.map((item, index) => (
+              <Reveal key={item.label} className={`direction-card direction-card-${index + 1}`} delay={index * 70}>
+                <div className="direction-image">
+                  <Image src={item.image} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 34vw" />
+                </div>
+                <div className="direction-meta">
+                  <span>{item.label}</span>
+                  <h3>{item.title}</h3>
+                  <a href="#concierge" aria-label={`Choose ${item.label} direction`}>Choose this direction ↗</a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="imagery-note">Concept imagery is used to establish art direction until BeBloomy supplies a final production library.</p>
         </div>
       </section>
 
-      <section id="services" className="services section-pad">
-        <Reveal className="services-intro">
-          <p className="eyebrow">What we create</p>
-          <h2>Floral design for everyday beauty and extraordinary occasions.</h2>
-        </Reveal>
-
-        <div className="service-list">
-          {services.map(([number, title, copy], index) => (
-            <Reveal key={title} className="service-row" delay={index * 55}>
+      <section className="process shell section-space">
+        <div className="process-copy">
+          <p className="section-label">How the order works</p>
+          <h2>Three steps. No guessing.</h2>
+          <p>A simple digital brief starts the conversation. The florist remains responsible for the final recommendation.</p>
+        </div>
+        <div className="process-steps">
+          {steps.map(([number, title, copy]) => (
+            <div className="process-step" key={number}>
               <span>{number}</span>
               <h3>{title}</h3>
               <p>{copy}</p>
-              <i aria-hidden="true">↗</i>
-            </Reveal>
+            </div>
           ))}
         </div>
       </section>
 
-      <section id="events" className="event-feature">
-        <div className="event-image">
-          <Image src="/images/event-night.svg" alt="Abstract evening floral installation" fill sizes="100vw" />
+      <section id="events" className="events">
+        <div className="events-image">
+          <Image src={images.eventTable} alt="Floral centrepiece at an elegant event table" fill sizes="100vw" />
+          <div className="events-overlay" />
         </div>
-        <div className="event-overlay" />
-        <div className="event-content section-pad">
-          <Reveal>
-            <p className="eyebrow light">Floral environments</p>
-            <h2>Make the room feel unforgettable.</h2>
+        <div className="events-content shell">
+          <p className="section-label section-label-light">Events and spaces</p>
+          <h2>Flowers should belong to the room.</h2>
+          <p>
+            From a welcome arrangement to a full table composition, the direction begins with scale, light, colour and the way people will use the space.
+          </p>
+          <div className="events-actions">
+            <a className="button button-light" href="#concierge">Brief an event <span>↗</span></a>
+            <span>Private occasions · Dinners · Brand moments · Hospitality</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="craft shell section-space">
+        <div className="craft-gallery">
+          <div className="craft-photo craft-photo-main">
+            <Image src={images.eventWhite} alt="White flowers arranged for a formal table" fill sizes="(max-width: 900px) 100vw, 50vw" />
+          </div>
+          <div className="craft-photo craft-photo-small">
+            <Image src={images.dried} alt="Dried floral composition used as an alternative texture direction" fill sizes="(max-width: 900px) 50vw, 24vw" />
+          </div>
+        </div>
+        <div className="craft-copy">
+          <p className="section-label">The BeBloomy standard</p>
+          <h2>Freshness, unusual material and service that feels personal.</h2>
+          <p>
+            Public brand materials describe BeBloomy as a premium flower brand focused on high-level service and compositions made from fresh, unusual flowers. The redesigned experience turns that promise into a clear customer journey.
+          </p>
+          <dl>
+            <div><dt>Selection</dt><dd>Seasonal flowers chosen for form, colour and condition.</dd></div>
+            <div><dt>Direction</dt><dd>A composition shaped around the customer, space and occasion.</dd></div>
+            <div><dt>Confirmation</dt><dd>Details agreed directly before preparation and delivery.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="concierge" className="concierge-section section-space">
+        <div className="shell concierge-layout">
+          <div className="concierge-intro">
+            <p className="section-label">Personal flower concierge</p>
+            <h2>Give the florist a useful brief in under a minute.</h2>
             <p>
-              From a single table to a complete celebration, we create floral atmospheres that belong to the place, the people and the occasion.
+              Choose the occasion, visual direction, timing and budget. Telegram opens with a structured message ready for review.
             </p>
-            <a href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
-              Discuss your event <span>↗</span>
-            </a>
-          </Reveal>
+            <div className="concierge-details">
+              <span>No payment at this step</span>
+              <span>Availability confirmed personally</span>
+              <span>Final composition agreed before preparation</span>
+            </div>
+          </div>
+          <Concierge />
         </div>
       </section>
 
-      <section className="story section-pad">
-        <Reveal className="story-image">
-          <Image src="/images/editorial.svg" alt="Editorial floral artwork for BeBloomy" fill sizes="(max-width: 900px) 100vw, 48vw" />
-          <span className="image-note">From our Limassol flower room</span>
-        </Reveal>
-        <Reveal className="story-copy" delay={120}>
-          <p className="eyebrow">A local boutique with an international eye</p>
-          <h2>Flowers selected for character, not convention.</h2>
-          <p>
-            BeBloomy brings a refined, contemporary approach to floristry in Limassol. Every arrangement begins with a conversation and ends as something unmistakably personal.
-          </p>
-          <div className="story-facts">
-            <div><strong>7 days</strong><span>Open every week</span></div>
-            <div><strong>1:1</strong><span>Personal guidance</span></div>
-            <div><strong>CY</strong><span>Created in Limassol</span></div>
+      <section id="visit" className="visit shell section-space">
+        <div className="visit-card">
+          <div className="visit-heading">
+            <p className="section-label">Visit / contact</p>
+            <h2>BeBloomy at Limassol Del Mar.</h2>
           </div>
-        </Reveal>
-      </section>
-
-      <section className="concierge section-pad">
-        <Reveal className="concierge-copy">
-          <p className="eyebrow">Not sure what to choose?</p>
-          <h2>Tell us the feeling. We will find the flowers.</h2>
-          <p>
-            Use the quick brief to start a personal conversation with our florist. We will confirm the composition, delivery and final details directly with you.
-          </p>
-          <div className="concierge-assurance">
-            <span>Season-led selection</span>
-            <span>Personal confirmation</span>
-            <span>Delivery across Limassol</span>
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <Concierge />
-        </Reveal>
-      </section>
-
-      <section id="visit" className="visit section-pad">
-        <div className="visit-top">
-          <Reveal>
-            <p className="eyebrow">Visit BeBloomy</p>
-            <h2>Come for flowers. Leave with a feeling.</h2>
-          </Reveal>
-          <Reveal delay={100} className="visit-details">
+          <div className="visit-grid">
             <div>
-              <span>Location</span>
+              <span>Address</span>
               <p>117–123 Georgiou A Street<br />Germasogeia 4048, Limassol</p>
             </div>
             <div>
-              <span>Opening hours</span>
+              <span>Hours</span>
               <p>Monday–Sunday<br />10:00–20:00</p>
             </div>
             <div>
               <span>Contact</span>
               <p><a href="tel:+35799228323">+357 99 228323</a><br /><a href="mailto:bebloomycy@gmail.com">bebloomycy@gmail.com</a></p>
             </div>
-          </Reveal>
-        </div>
-
-        <div className="visit-banner">
-          <div className="visit-art" />
-          <LeafMark />
-          <p>Your perfect flower service in Del Mar, Limassol.</p>
-          <a href="https://maps.google.com/?q=117-123+Georgiou+A+Street+Germasogeia+4048+Cyprus" target="_blank" rel="noreferrer">
-            Open in maps ↗
-          </a>
+            <div>
+              <span>Social</span>
+              <p><a href="https://instagram.com/bebloomy_cy" target="_blank" rel="noreferrer">Instagram ↗</a><br /><a href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">Telegram ↗</a></p>
+            </div>
+          </div>
+          <div className="visit-actions">
+            <a className="button button-dark" href="https://maps.google.com/?q=117-123+Georgiou+A+Street+Germasogeia+4048+Cyprus" target="_blank" rel="noreferrer">
+              Open in maps <span>↗</span>
+            </a>
+            <a className="inline-link" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">Message the boutique ↗</a>
+          </div>
         </div>
       </section>
 
-      <footer className="footer section-pad">
-        <div className="footer-brand">
-          <LeafMark />
-          <span>Be Bloomy</span>
+      <footer className="footer shell">
+        <div className="footer-mark">Be Bloomy</div>
+        <div className="footer-copy">
+          <p>Flowers & decor · Limassol, Cyprus</p>
+          <p>Digital concept by <strong>DUONIQ</strong></p>
         </div>
-        <div className="footer-links">
-          <a href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">Telegram ↗</a>
-          <a href="tel:+35799228323">Call ↗</a>
-          <a href="mailto:bebloomycy@gmail.com">Email ↗</a>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 BeBloomy Ltd. Concept presentation.</span>
-          <span>Digital concept by <strong>DUONIQ</strong></span>
+        <div className="footer-legal">
+          <span>© 2026 BeBloomy Ltd.</span>
+          <span>Concept imagery includes licensed Unsplash references pending final brand photography.</span>
         </div>
       </footer>
     </main>
