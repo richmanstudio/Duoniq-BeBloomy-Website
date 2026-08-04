@@ -1,11 +1,10 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
-import { LeafMark } from "./LeafMark";
+import { useEffect, useState } from "react";
 
 const links = [
-  ["Collections", "#collections"],
   ["Services", "#services"],
+  ["Directions", "#directions"],
   ["Events", "#events"],
   ["Visit", "#visit"],
 ] as const;
@@ -15,10 +14,10 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -29,31 +28,25 @@ export function Header() {
   }, [open]);
 
   return (
-    <Fragment>
-      <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-open" : ""}`}>
-        <a className="brand" href="#top" aria-label="BeBloomy home" onClick={() => setOpen(false)}>
-          <LeafMark className="brand-mark" />
+    <>
+      <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
+        <a className="site-brand" href="#top" aria-label="BeBloomy home" onClick={() => setOpen(false)}>
+          <span className="site-brand-flower" aria-hidden="true">✳</span>
           <span>Be Bloomy</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {links.map(([label, href]) => (
-            <a key={href} href={href}>
-              {label}
-            </a>
-          ))}
+          {links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
         </nav>
 
-        <a className="header-cta desktop-only" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
-          Order concierge <span aria-hidden="true">↗</span>
-        </a>
+        <a className="header-order" href="#concierge">Start an order <span aria-hidden="true">↗</span></a>
 
         <button
-          className={`menu-button ${open ? "is-open" : ""}`}
+          className="menu-toggle"
           type="button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((value) => !value)}
         >
           <span />
@@ -61,19 +54,20 @@ export function Header() {
         </button>
       </header>
 
-      <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
-        <div className="mobile-menu-inner">
+      <div id="mobile-navigation" className={`mobile-navigation ${open ? "is-open" : ""}`} aria-hidden={!open}>
+        <nav aria-label="Mobile navigation">
           {links.map(([label, href], index) => (
-            <a key={href} href={href} onClick={() => setOpen(false)} style={{ transitionDelay: `${80 + index * 45}ms` }}>
-              <span>0{index + 1}</span>
-              {label}
+            <a key={href} href={href} onClick={() => setOpen(false)}>
+              <span>0{index + 1}</span>{label}
             </a>
           ))}
-          <a className="mobile-order" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
-            Start an order <span>↗</span>
-          </a>
+        </nav>
+        <a className="mobile-order" href="#concierge" onClick={() => setOpen(false)}>Start an order <span>↗</span></a>
+        <div className="mobile-contact">
+          <a href="tel:+35799228323">+357 99 228323</a>
+          <span>Open daily 10:00–20:00</span>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 }
