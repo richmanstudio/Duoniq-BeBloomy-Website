@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { LeafMark } from "./LeafMark";
 
 const links = [
@@ -29,40 +29,42 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <a className="brand" href="#top" aria-label="BeBloomy home">
-        <LeafMark className="brand-mark" />
-        <span>Be Bloomy</span>
-      </a>
+    <Fragment>
+      <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-open" : ""}`}>
+        <a className="brand" href="#top" aria-label="BeBloomy home" onClick={() => setOpen(false)}>
+          <LeafMark className="brand-mark" />
+          <span>Be Bloomy</span>
+        </a>
 
-      <nav className="desktop-nav" aria-label="Primary navigation">
-        {links.map(([label, href]) => (
-          <a key={href} href={href}>
-            {label}
-          </a>
-        ))}
-      </nav>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {links.map(([label, href]) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
+        </nav>
 
-      <a className="header-cta desktop-only" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
-        Order concierge <span aria-hidden="true">↗</span>
-      </a>
+        <a className="header-cta desktop-only" href="https://t.me/BeBloomyCY" target="_blank" rel="noreferrer">
+          Order concierge <span aria-hidden="true">↗</span>
+        </a>
 
-      <button
-        className="menu-button"
-        type="button"
-        aria-expanded={open}
-        aria-controls="mobile-menu"
-        aria-label={open ? "Close menu" : "Open menu"}
-        onClick={() => setOpen((value) => !value)}
-      >
-        <span />
-        <span />
-      </button>
+        <button
+          className={`menu-button ${open ? "is-open" : ""}`}
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span />
+          <span />
+        </button>
+      </header>
 
-      <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`}>
+      <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <div className="mobile-menu-inner">
           {links.map(([label, href], index) => (
-            <a key={href} href={href} onClick={() => setOpen(false)} style={{ transitionDelay: `${100 + index * 55}ms` }}>
+            <a key={href} href={href} onClick={() => setOpen(false)} style={{ transitionDelay: `${80 + index * 45}ms` }}>
               <span>0{index + 1}</span>
               {label}
             </a>
@@ -72,6 +74,6 @@ export function Header() {
           </a>
         </div>
       </div>
-    </header>
+    </Fragment>
   );
 }
