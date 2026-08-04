@@ -2,50 +2,43 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
-const displayFont = Cormorant_Garamond({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sansFont = Manrope({
+const sans = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "BeBloomy — Flowers & Decor in Limassol",
-  description:
-    "A premium digital concept for BeBloomy Flowers & Decor, Limassol — signature bouquets, floral styling and thoughtful gifting.",
+  title: "BeBloomy — Personal flower service in Limassol",
+  description: "Fresh and unusual flowers, personal florist guidance, event styling and delivery in Limassol.",
   applicationName: "BeBloomy",
-  keywords: [
-    "flowers Limassol",
-    "flower delivery Cyprus",
-    "wedding flowers Limassol",
-    "floral decor Cyprus",
-    "BeBloomy",
-  ],
+  keywords: ["BeBloomy", "flowers Limassol", "flower delivery Limassol", "event flowers Cyprus", "florist Limassol"],
   openGraph: {
-    title: "BeBloomy — Flowers & Decor in Limassol",
-    description: "Beauty and style, arranged for every moment.",
+    title: "BeBloomy — Flowers for the moment you actually mean",
+    description: "A personal flower service at Limassol Del Mar.",
     type: "website",
     locale: "en_CY",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f2ede4",
+  themeColor: "#f4f1e9",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${displayFont.variable} ${sansFont.variable}`}>{children}</body>
+      <body className={`${display.variable} ${sans.variable}`}>{children}</body>
     </html>
   );
 }
