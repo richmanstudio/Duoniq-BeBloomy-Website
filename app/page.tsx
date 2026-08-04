@@ -12,18 +12,21 @@ const collections = [
     title: "Soft gestures",
     copy: "Airy, tonal arrangements for the moments that do not need a reason.",
     image: "/images/soft-pink.svg",
+    alt: "Editorial blush floral composition",
   },
   {
     number: "02",
     title: "Modern romance",
     copy: "Sculptural flowers with expressive colour, texture and movement.",
     image: "/images/orchids.svg",
+    alt: "Ivory orchid-inspired editorial composition",
   },
   {
     number: "03",
     title: "Botanical objects",
     copy: "Living compositions designed for interiors, gifting and arrival moments.",
     image: "/images/green-detail.svg",
+    alt: "Dark botanical floral detail",
   },
 ];
 
@@ -98,7 +101,7 @@ export default function Home() {
           {collections.map((item, index) => (
             <Reveal key={item.title} className={`collection-card collection-${index + 1}`} delay={index * 90}>
               <div className="collection-image">
-                <Image src={item.image} alt="" fill sizes="(max-width: 800px) 100vw, 33vw" />
+                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 800px) 100vw, 33vw" />
               </div>
               <div className="collection-meta">
                 <span>{item.number}</span>
@@ -106,7 +109,7 @@ export default function Home() {
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
                 </div>
-                <span className="round-arrow">↗</span>
+                <span className="round-arrow" aria-hidden="true">↗</span>
               </div>
             </Reveal>
           ))}
@@ -147,7 +150,7 @@ export default function Home() {
 
       <section id="events" className="event-feature">
         <div className="event-image">
-          <Image src={officialImage} alt="BeBloomy flower selection in the Limassol boutique" fill sizes="100vw" />
+          <Image src="/images/event-night.svg" alt="Abstract evening floral installation" fill sizes="100vw" />
         </div>
         <div className="event-overlay" />
         <div className="event-content section-pad">
@@ -166,7 +169,7 @@ export default function Home() {
 
       <section className="story section-pad">
         <Reveal className="story-image">
-          <Image src="/images/editorial.svg" alt="Editorial floral illustration for BeBloomy" fill sizes="(max-width: 900px) 100vw, 48vw" />
+          <Image src="/images/editorial.svg" alt="Editorial floral artwork for BeBloomy" fill sizes="(max-width: 900px) 100vw, 48vw" />
           <span className="image-note">From our Limassol flower room</span>
         </Reveal>
         <Reveal className="story-copy" delay={120}>
