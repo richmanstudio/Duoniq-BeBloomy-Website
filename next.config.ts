@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "www.limassoldelmar.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   basePath: isProduction ? `/${repositoryName}` : "",
