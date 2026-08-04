@@ -30,12 +30,12 @@ The static site is exported to `out/`.
 
 ## Deployment
 
-The included GitHub Actions workflow deploys `main` to GitHub Pages. In repository settings, set **Pages → Source → GitHub Actions** if required.
+The included GitHub Actions workflow builds and deploys `main` to GitHub Pages. In repository settings, set **Pages → Source → GitHub Actions** if required.
 
 Expected URL:
 
 `https://richmanstudio.github.io/Duoniq-BeBloomy-Website/`
 
-## Important
+## Concept status
 
-This repository is a presentation concept. Product names, final catalogue content, legal policies, payment flow and photography must be confirmed with BeBloomy before commercial launch.
+The first presentation build is complete and ready for BeBloomy review. Product names, final catalogue content, legal policies, payment flow and photography must be confirmed with BeBloomy before commercial launch.
